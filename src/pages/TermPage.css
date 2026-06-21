@@ -56,7 +56,7 @@
   min-width: 100px;
 }
 
-.level-tab:hover {
+.level-tab:hover:not(:disabled) {
   border-color: #93c5fd;
   background: #f8faff;
 }
@@ -64,6 +64,16 @@
 .level-tab.active {
   border-color: #2563eb;
   background: #eff6ff;
+}
+
+.level-tab.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f9fafb;
+}
+
+.level-tab.complete .tab-number {
+  color: #16a34a;
 }
 
 .tab-number {
@@ -90,8 +100,8 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 2rem;
-  margin-bottom: 1.5rem;
-  min-height: 220px;
+  margin-bottom: 1.25rem;
+  min-height: 200px;
 }
 
 .level-badge {
@@ -129,39 +139,32 @@
   color: #2563eb;
 }
 
-/* Prev / Next nav */
-.level-nav {
+/* Actions */
+.level-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
-.level-nav-btn {
-  padding: 0.55rem 1.25rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background: #fff;
+.test-btn {
+  padding: 0.7rem 1.5rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.test-btn:hover {
+  background: #1d4ed8;
+}
+
+.level-complete-msg {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #333;
-  cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.level-nav-btn:hover:not(:disabled) {
-  border-color: #2563eb;
-  color: #2563eb;
-}
-
-.level-nav-btn:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.level-nav-indicator {
-  font-size: 0.875rem;
-  color: #999;
-  font-weight: 500;
+  color: #16a34a;
 }
 
 /* Not found */

@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import glossaryLevels from '../data/glossaryLevels'
+import { useProgress } from '../hooks/useProgress'
+import Quiz from '../components/Quiz'
 import './TermPage.css'
 
 function TermPage() {
   const { term } = useParams()
   const entry = glossaryLevels.find((g) => g.slug === term)
   const [activeLevel, setActiveLevel] = useState(0)
+  const [showQuiz, setShowQuiz] = useState(false)
+  const { isComplete, isUnlocked, markComplete } = useProgress(term)
 
   if (!entry) {
     return (
@@ -18,8 +22,21 @@ function TermPage() {
   }
 
   const current = entry.levels[activeLevel]
-  const isFirst = activeLevel === 0
-  const isLast = activeLevel === entry.levels.length - 1
+  const totalLevels = entry.levels.length
+
+  const handleTabClick = (index) => {
+    if (!isUnlocked(index)) return
+    setActiveLevel(index)
+    setShowQuiz(false)
+  }
+
+  const handlePass = () => {
+    markComplete(activeLevel)
+    setShowQuiz(false)
+    if (activeLevel < totalLevels - 1) {
+      setActiveLevel(activeLevel + 1)
+    }
+  }
 
   return (
     <div className="term-page">
@@ -27,50 +44,59 @@ function TermPage() {
 
       <div className="term-header">
         <h1>{entry.term}</h1>
-        <p className="term-subtitle">Start at Level 1 and go as deep as you like.</p>
+        <p className="term-subtitle">Complete each level's quiz to unlock the next one.</p>
       </div>
 
       <div className="level-tabs">
-        {entry.levels.map((level, index) => (
-          <button
-            key={index}
-            className={`level-tab ${activeLevel === index ? 'active' : ''}`}
-            onClick={() => setActiveLevel(index)}
-          >
-            <span className="tab-number">Level {index + 1}</span>
-            <span className="tab-title">{level.title}</span>
-          </button>
-        ))}
+        {entry.levels.map((level, index) => {
+          const unlocked = isUnlocked(index)
+          const complete = isComplete(index)
+          return (
+            <button
+              key={index}
+              className={`level-tab ${activeLevel === index ? 'active' : ''} ${!unlocked ? 'locked' : ''} ${complete ? 'complete' : ''}`}
+              onClick={() => handleTabClick(index)}
+              disabled={!unlocked}
+            >
+              <span className="tab-number">
+                {complete ? '✓' : !unlocked ? '🔒' : `Level ${index + 1}`}
+              </span>
+              <span className="tab-title">{level.title}</span>
+            </button>
+          )
+        })}
       </div>
 
-      <div className="level-content">
-        <div className="level-badge">Level {activeLevel + 1} — {current.title}</div>
-        <p className="level-explanation">{current.explanation}</p>
-        <div className="level-example">
-          <span className="example-label">Example: </span>
-          {current.example}
-        </div>
-      </div>
+      {!showQuiz ? (
+        <>
+          <div className="level-content">
+            <div className="level-badge">Level {activeLevel + 1} — {current.title}</div>
+            <p className="level-explanation">{current.explanation}</p>
+            <div className="level-example">
+              <span className="example-label">Example: </span>
+              {current.example}
+            </div>
+          </div>
 
-      <div className="level-nav">
-        <button
-          className="level-nav-btn"
-          onClick={() => setActiveLevel((l) => l - 1)}
-          disabled={isFirst}
-        >
-          ← Previous
-        </button>
-        <span className="level-nav-indicator">
-          {activeLevel + 1} / {entry.levels.length}
-        </span>
-        <button
-          className="level-nav-btn"
-          onClick={() => setActiveLevel((l) => l + 1)}
-          disabled={isLast}
-        >
-          Next →
-        </button>
-      </div>
+          <div className="level-actions">
+            {isComplete(activeLevel) ? (
+              <div className="level-complete-msg">✓ You've completed this level</div>
+            ) : (
+              <button className="test-btn" onClick={() => setShowQuiz(true)}>
+                Ready to test yourself? →
+              </button>
+            )}
+          </div>
+        </>
+      ) : (
+        <Quiz
+          slug={entry.slug}
+          levelIndex={activeLevel}
+          totalLevels={totalLevels}
+          onPass={handlePass}
+          onClose={() => setShowQuiz(false)}
+        />
+      )}
     </div>
   )
 }
