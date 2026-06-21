@@ -39,6 +39,12 @@
   color: #2563eb;
 }
 
+.filter-btn.active {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
 .articles-list {
   display: flex;
   flex-direction: column;

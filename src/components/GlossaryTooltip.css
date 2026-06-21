@@ -12,11 +12,8 @@
 }
 
 .glossary-tooltip {
-  display: none;
   position: absolute;
   bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
@@ -24,19 +21,37 @@
   padding: 0.85rem 1rem;
   width: 280px;
   z-index: 200;
+  display: flex;
   flex-direction: column;
   gap: 0.4rem;
   text-align: left;
   pointer-events: none;
 }
 
-/* small caret arrow pointing down toward the word */
+/* alignment variants */
+.tooltip-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip-left {
+  left: 0;
+  transform: none;
+}
+.tooltip-right {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+/* caret */
+.tooltip-center::after  { left: 50%; transform: translateX(-50%); }
+.tooltip-left::after    { left: 12px; }
+.tooltip-right::after   { right: 12px; left: auto; }
+
 .glossary-tooltip::after {
   content: '';
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
   border: 6px solid transparent;
   border-top-color: #fff;
 }
@@ -45,16 +60,14 @@
   content: '';
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
   border: 7px solid transparent;
   border-top-color: #e5e7eb;
   margin-top: 1px;
 }
 
-.glossary-term:hover .glossary-tooltip {
-  display: flex;
-}
+.tooltip-center::before { left: 50%; transform: translateX(-50%); }
+.tooltip-left::before   { left: 11px; }
+.tooltip-right::before  { right: 11px; left: auto; }
 
 .tooltip-term {
   font-size: 0.8rem;

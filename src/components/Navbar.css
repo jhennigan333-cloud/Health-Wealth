@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #e5e7eb;
@@ -15,6 +16,17 @@
   font-weight: 700;
   color: #1a1a1a;
   text-decoration: none;
+}
+
+.navbar-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #1a1a1a;
+  padding: 0.25rem;
+  line-height: 1;
 }
 
 .navbar-links {
@@ -44,4 +56,40 @@
 
 .navbar-cta:hover {
   background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  .navbar-hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 1rem;
+  }
+
+  .navbar-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    width: fit-content;
+    border-bottom: none !important;
+  }
 }
