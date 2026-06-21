@@ -1,0 +1,86 @@
+.glossary-term {
+  position: relative;
+  display: inline;
+}
+
+.glossary-highlight {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.glossary-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  padding: 0.85rem 1rem;
+  width: 280px;
+  z-index: 200;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  pointer-events: none;
+}
+
+/* small caret arrow pointing down toward the word */
+.glossary-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #fff;
+}
+
+.glossary-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: #e5e7eb;
+  margin-top: 1px;
+}
+
+.glossary-term:hover .glossary-tooltip {
+  display: flex;
+}
+
+.tooltip-term {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2563eb;
+}
+
+.tooltip-definition {
+  font-size: 0.875rem;
+  color: #1a1a1a;
+  line-height: 1.55;
+}
+
+.tooltip-example {
+  font-size: 0.8rem;
+  color: #555;
+  background-color: #f9fafb;
+  border-left: 3px solid #2563eb;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.5;
+}
+
+.tooltip-example-label {
+  font-weight: 600;
+  color: #2563eb;
+}

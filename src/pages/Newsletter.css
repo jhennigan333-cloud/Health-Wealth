@@ -1,0 +1,92 @@
+.newsletter-page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.newsletter-page h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.newsletter-lead {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.newsletter-promises {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newsletter-promises li {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.newsletter-promises li::before {
+  content: '✓ ';
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.newsletter-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  align-self: flex-start;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  min-width: 0;
+}
+
+.form-row button {
+  padding: 0.7rem 1.5rem;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.form-row button:hover {
+  background-color: #1d4ed8;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+}

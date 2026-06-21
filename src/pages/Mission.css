@@ -1,0 +1,55 @@
+.mission-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.mission-hero {
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mission-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 1rem;
+}
+
+.mission-intro {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.mission-section {
+  margin-bottom: 2.5rem;
+}
+
+.mission-section h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+}
+
+.mission-section p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.mission-personal {
+  background-color: #f0f6ff;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.75;
+  font-style: italic;
+}

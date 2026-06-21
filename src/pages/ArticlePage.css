@@ -1,0 +1,143 @@
+.article-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.article-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2563eb;
+  letter-spacing: 0.05em;
+}
+
+.article-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0.5rem 0 0.5rem;
+  line-height: 1.25;
+}
+
+.article-date {
+  font-size: 0.875rem;
+  color: #999;
+  margin: 0;
+}
+
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 0 1.4rem;
+}
+
+.article-newsletter {
+  background-color: #f0f6ff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.article-newsletter h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem;
+}
+
+.article-newsletter p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.signup-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.signup-form input {
+  padding: 0.65rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 260px;
+}
+
+.signup-form button {
+  padding: 0.65rem 1.25rem;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.signup-form button:hover {
+  background-color: #1d4ed8;
+}
+
+.next-lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid #bfdbfe;
+  background-color: #eff6ff;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.next-lesson-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2563eb;
+}
+
+.next-lesson-link {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.next-lesson-link:hover {
+  color: #2563eb;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-not-found {
+  max-width: 680px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.article-not-found a {
+  color: #2563eb;
+  text-decoration: none;
+}

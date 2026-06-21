@@ -1,0 +1,78 @@
+.glossary-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.glossary-page h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.glossary-subtitle {
+  color: #555;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.terms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.term-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.term-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.term-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.term-deep-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.term-deep-link:hover {
+  text-decoration: underline;
+}
+
+.term-definition {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+
+.term-example {
+  font-size: 0.875rem;
+  color: #555;
+  background-color: #f9fafb;
+  border-left: 3px solid #2563eb;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.6;
+}
+
+.example-label {
+  font-weight: 600;
+  color: #2563eb;
+}
