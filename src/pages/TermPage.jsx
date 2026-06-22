@@ -46,13 +46,25 @@ function TermPage() {
 
       <div className="term-header">
         <h1>{entry.term}</h1>
-        <div className="term-header-row">
+        <div className="mode-selector">
+          <span className="mode-label">Choose your mode:</span>
+          <div className="mode-buttons">
+            <button
+              className={`mode-btn ${locked ? 'mode-active' : ''}`}
+              onClick={() => !locked && toggleLock()}
+            >
+              📚 Learn It
+            </button>
+            <button
+              className={`mode-btn ${!locked ? 'mode-active' : ''}`}
+              onClick={() => locked && toggleLock()}
+            >
+              🔥 Burn It
+            </button>
+          </div>
           <p className="term-subtitle">
-            {locked ? 'Quiz barriers on — complete each level to advance.' : 'No barriers — read at your own pace.'}
+            {locked ? 'Pass each level\'s quiz to unlock the next.' : 'All levels open — read at your own pace.'}
           </p>
-          <button className="lock-toggle" onClick={toggleLock}>
-            {locked ? '📚 Learn It' : '🔥 Burn It'}
-          </button>
         </div>
       </div>
 
