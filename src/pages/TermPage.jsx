@@ -48,10 +48,10 @@ function TermPage() {
         <h1>{entry.term}</h1>
         <div className="term-header-row">
           <p className="term-subtitle">
-            {locked ? 'Complete each level\'s quiz to unlock the next one.' : 'Explore freely — all levels are open.'}
+            {locked ? 'Quiz barriers on — complete each level to advance.' : 'No barriers — read at your own pace.'}
           </p>
           <button className="lock-toggle" onClick={toggleLock}>
-            {locked ? '🔒 Learn It or Burn It: ON' : '🔓 Learn It or Burn It: OFF'}
+            {locked ? '📚 Learn It' : '🔥 Burn It'}
           </button>
         </div>
       </div>
