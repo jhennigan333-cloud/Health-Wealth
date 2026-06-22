@@ -51,7 +51,7 @@ function TermPage() {
             {locked ? 'Complete each level\'s quiz to unlock the next one.' : 'Explore freely — all levels are open.'}
           </p>
           <button className="lock-toggle" onClick={toggleLock}>
-            {locked ? '🔒 Guided' : '🔓 Explore freely'}
+            {locked ? '🔒 Learn It or Burn It: ON' : '🔓 Learn It or Burn It: OFF'}
           </button>
         </div>
       </div>
