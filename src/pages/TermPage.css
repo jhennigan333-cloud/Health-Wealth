@@ -26,10 +26,35 @@
   margin: 0 0 0.4rem;
 }
 
+.term-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .term-subtitle {
   color: #777;
   font-size: 0.95rem;
   margin: 0;
+}
+
+.lock-toggle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  background: #fff;
+  color: #444;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lock-toggle:hover {
+  border-color: #2563eb;
+  color: #2563eb;
 }
 
 /* Tab bar */

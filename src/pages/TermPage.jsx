@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import glossaryLevels from '../data/glossaryLevels'
 import { useProgress } from '../hooks/useProgress'
+import { useLockSetting } from '../hooks/useLockSetting'
 import Quiz from '../components/Quiz'
 import './TermPage.css'
 
@@ -11,6 +12,7 @@ function TermPage() {
   const [activeLevel, setActiveLevel] = useState(0)
   const [showQuiz, setShowQuiz] = useState(false)
   const { isComplete, isUnlocked, markComplete } = useProgress(term)
+  const { locked, toggle: toggleLock } = useLockSetting()
 
   if (!entry) {
     return (
@@ -25,7 +27,7 @@ function TermPage() {
   const totalLevels = entry.levels.length
 
   const handleTabClick = (index) => {
-    if (!isUnlocked(index)) return
+    if (locked && !isUnlocked(index)) return
     setActiveLevel(index)
     setShowQuiz(false)
   }
@@ -44,12 +46,19 @@ function TermPage() {
 
       <div className="term-header">
         <h1>{entry.term}</h1>
-        <p className="term-subtitle">Complete each level's quiz to unlock the next one.</p>
+        <div className="term-header-row">
+          <p className="term-subtitle">
+            {locked ? 'Complete each level\'s quiz to unlock the next one.' : 'Explore freely — all levels are open.'}
+          </p>
+          <button className="lock-toggle" onClick={toggleLock}>
+            {locked ? '🔒 Guided' : '🔓 Explore freely'}
+          </button>
+        </div>
       </div>
 
       <div className="level-tabs">
         {entry.levels.map((level, index) => {
-          const unlocked = isUnlocked(index)
+          const unlocked = !locked || isUnlocked(index)
           const complete = isComplete(index)
           return (
             <button
