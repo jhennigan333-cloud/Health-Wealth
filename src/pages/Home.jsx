@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import articles from '../data/articles'
+import SignupForm from '../components/SignupForm'
 import './Home.css'
 
 const featuredArticles = articles.slice(0, 3)
@@ -40,10 +41,7 @@ function Home() {
       <section className="newsletter-strip">
         <h2>Stay in the loop</h2>
         <p>A weekly breakdown of what's happening in the economy — in plain English.</p>
-        <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
-          <input type="email" placeholder="Your email address" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <SignupForm buttonText="Subscribe" />
       </section>
     </div>
   )

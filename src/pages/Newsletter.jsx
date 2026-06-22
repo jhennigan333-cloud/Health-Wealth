@@ -1,3 +1,4 @@
+import SignupForm from '../components/SignupForm'
 import './Newsletter.css'
 
 function Newsletter() {
@@ -16,19 +17,8 @@ function Newsletter() {
           <li>Free, always</li>
         </ul>
 
-        <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-          <label htmlFor="email">Your email address</label>
-          <div className="form-row">
-            <input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </div>
-          <p className="form-note">No spam. Unsubscribe anytime.</p>
-        </form>
+        <SignupForm buttonText="Subscribe" />
+        <p className="form-note">No spam. Unsubscribe anytime.</p>
       </div>
     </div>
   )

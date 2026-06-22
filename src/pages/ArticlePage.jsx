@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import articles from '../data/articles'
 import learningPath from '../data/learningPath'
 import { highlightTerms } from '../utils/highlightTerms'
+import SignupForm from '../components/SignupForm'
 import './ArticlePage.css'
 
 function ArticlePage() {
@@ -41,10 +42,7 @@ function ArticlePage() {
           We break down one big finance or economy topic every week — in plain
           English, no jargon required.
         </p>
-        <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
-          <input type="email" placeholder="Your email address" required />
-          <button type="submit">Subscribe free</button>
-        </form>
+        <SignupForm />
       </div>
 
       {nextArticle && (
