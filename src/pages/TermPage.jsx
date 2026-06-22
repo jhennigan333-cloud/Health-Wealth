@@ -102,11 +102,11 @@ function TermPage() {
           <div className="level-actions">
             {isComplete(activeLevel) ? (
               <div className="level-complete-msg">✓ You've completed this level</div>
-            ) : (
+            ) : locked ? (
               <button className="test-btn" onClick={() => setShowQuiz(true)}>
                 Ready to test yourself? →
               </button>
-            )}
+            ) : null}
           </div>
         </>
       ) : (
