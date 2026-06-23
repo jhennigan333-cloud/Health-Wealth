@@ -20,9 +20,12 @@ function SignupForm({ buttonText = 'Subscribe free' }) {
         setStatus('success')
         setEmail('')
       } else {
+        const data = await res.json().catch(() => ({}))
+        console.error('Subscribe error:', res.status, data)
         setStatus('error')
       }
-    } catch {
+    } catch (err) {
+      console.error('Subscribe fetch error:', err)
       setStatus('error')
     }
   }
