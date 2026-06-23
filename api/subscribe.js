@@ -9,14 +9,21 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email is required' })
   }
 
+  const apiKey = process.env.BEEHIIV_API_KEY
+  const pubId = process.env.BEEHIIV_PUBLICATION_ID
+
+  if (!apiKey || !pubId) {
+    return res.status(500).json({ error: 'Server misconfigured — missing env vars' })
+  }
+
   try {
     const response = await fetch(
-      `https://api.beehiiv.com/v2/publications/${process.env.BEEHIIV_PUBLICATION_ID}/subscriptions`,
+      `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.BEEHIIV_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           email,
@@ -26,13 +33,14 @@ export default async function handler(req, res) {
       }
     )
 
+    const data = await response.json()
+
     if (!response.ok) {
-      const error = await response.json()
-      return res.status(response.status).json({ error: error.message || 'Subscription failed' })
+      return res.status(response.status).json({ error: data.message || 'Subscription failed' })
     }
 
     return res.status(200).json({ success: true })
   } catch (err) {
-    return res.status(500).json({ error: 'Server error' })
+    return res.status(500).json({ error: 'Server error: ' + err.message })
   }
 }
